@@ -23,4 +23,21 @@
 
 Создать виртуальное окружение (venv)
 Создать проект и приложение Django
+Создать схему (https://app.diagrams.net/)
 
+DRY - don't repeat yourself (переиспользование кода)
+
+MVT (Model View Template) — это шаблон проектирования программного обеспечения.
+Django MVT – это набор из трех важных компонентов: Model, View и Template (модель, шаблон и представление).
+
+# сервер СУБД (ядро) №15 -> базы данных (магазин) -> таблицы -> колонки
+
+#     models.py      views.py     home.html
+MVT (  Model          View         Template  )
+models.py - # Таблицы - сохранность данных (сырые)
+views.py  - # Контроллер - доставка данных от модели к шаблону (логика)
+home.html - # Внешний вид (шаблон / jinja)
+MVС (Model View Controller)
+
+Python  = 100x Rust
+ORM     = 2x SQL

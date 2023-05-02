@@ -1,0 +1,63 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block main %}
+
+<div class="container">
+    <form class="p-2">
+          <div class="input-group">
+        <input type="text" class="form-control" placeholder="введите часть названия товара...">
+        <button type="submit" class="btn btn-secondary">Искать</button>
+      </div>
+    </form>
+</div>
+
+<div class="container">
+    {{ my_list }}
+
+    {% if age < 18 %}
+        <div class="text-danger">Вам нельзя в клуб!</div>
+    {% else %}
+        <div class="text-success">Проходите.</div>
+    {% endif %}
+
+    <ul>
+        {% for item in my_list %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <div class="row">
+        {% for category in categories %}
+          <div class="col-lg-3 border border-1 border-dark">
+              <img src="{% static 'images/remont.jpg' %}" class="img-fluid img-thumbnail" alt="avatar"/>
+            <h2>{{ category.title }}</h2>
+            <p><a class="btn btn-secondary" href="/{{ category.url }}">войти »</a></p>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container shadow p-5">
+    <div class="display-6 text-center m-3">VIP-объявления:</div>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        {% for vip_ad in vip_ads %}
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">{{ vip_ad.title }} <button class="btn btn-sm btn-outline-dark">[{{ vip_ad.seller }}]</button></h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">{{ vip_ad.price }}<small class="text-muted fw-light">/тенге</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <img src="{% static 'images/remont.jpg' %}" class="img-fluid img-thumbnail" alt="avatar"/>
+                  <li>{{ vip_ad.category }}</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-outline-primary">хочу!</button>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock main %}
