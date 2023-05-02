@@ -1,0 +1,12 @@
+# нажать на путь к папке и ввести cmd
+python -m venv env
+call env/scripts/activate
+pip install django
+pip freeze > requirements.txt
+
+
+django-admin startproject django_settings .
+python manage.py runserver
+# chrome: http://127.0.0.1:8000/
+
+django-admin startapp django_app
